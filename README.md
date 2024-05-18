@@ -20,7 +20,7 @@ make install
 That's it!
 
 You can install using `DESTDIR` then roll your own package such that your
-package manager can keep thrack of things. `PREFIX=/usr` is also accepted.
+package manager can keep track of things. `PREFIX=/usr` is also accepted.
 
 ## dependencies
 
@@ -48,16 +48,16 @@ yad GUI pops where the user can use the `select` button to fetch the
 color.
 The cursor should change to a crosshair, then hover over the area where
 you want to grab the color and click. A GUI is returned showing the
-color in hex, rgb() and decimalformats with a color swatch giving some 
-(for example: `#F4D131`, `rgb(244,209,49)`, `0.956 0.819 0.192` respectively)
-visual feedback. It does rely on `rgb.txt` when named colors such
+color in hex, rgb() and decimal formats with a color swatch giving some 
+visual feedback (for example: `#F4D131`, `rgb(244,209,49)`, `0.956 0.819 0.192` respectively). 
+It does rely on `rgb.txt` when named colors such
 as `gray20` occur, which the script tries to find but if it is in a non
 standard location you can tell the script in a configuration file at
 `~/.config/colpick.conf`
 with the contents:
 
 ```cfg
-rgb_text=/full/pathg/to/rgb.txt
+rgb_text=/full/path/to/rgb.txt
 ```
 
 If you delete `rgb.txt` the script will work faster!
@@ -68,5 +68,5 @@ Report them here in _issues_ or fix them and issue a _pull request_ .
 
 ## to do
 
- [] gettext (NLS)
- [] reduce dependency on bash, sed, grep; ie: more pure shell
+ - [ ] gettext (NLS)
+ - [ ] reduce dependency on bash, sed, grep; ie: more pure shell
