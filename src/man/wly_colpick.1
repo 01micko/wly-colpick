@@ -1,0 +1,37 @@
+.TH WLY_COLPICK "18" "May" "0.0-1" "Color picker"
+.SH NAME
+wly_colpick \- a yad GUI script to choose colors on a wayland screen
+.SH SYNOPSIS
+.B wly_colpick
+.SH DESCRIPTION
+.TP
+In a wayland session this can be invoked from menu, shortcut or CLI. A
+.TP
+yad GUI pops where the user can use the \fI\,select\fR button to fetch the color.
+.TP
+The cursor should change to a crosshair, then hover over the area where
+.TP
+you want to grab the color and click. A GUI is returned showing the
+.TP
+color in hex, rgb() and decimal formats with a color swatch giving some
+.TP
+visual feedback. It does rely on \fI\,rgb.txt\fR  when named colors such
+.TP
+as \fB\,gray20\fR occur, which the script tries to find but if it is in a non
+.TP
+standard location you can tell the script in a configuration file at 
+.TP
+\fI\,~/.config/colpick.conf\fR  
+.TP
+with the contents:
+.B rgb_text=/full/pathg/to/rgb.txt
+.TP
+.B Note: rgb.txt is not strictly needed.
+.SH AUTHOR
+Written by Mick Amadio \- Email:01micko@gmail.com
+.SH "REPORTING BUGS"
+Please report bugs at:
+
+https://github.com/01micko/wly_colpick/issues
+.SH "SEE ALSO"
+yad(1)
