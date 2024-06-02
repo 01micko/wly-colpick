@@ -6,5 +6,5 @@ Comment=Pick color
 Exec=wly_colpick
 Terminal=false
 Type=Application
-Categories=X-GraphicUtility
+Categories=Graphics;2DGraphics
 GenericName=Color Picker
