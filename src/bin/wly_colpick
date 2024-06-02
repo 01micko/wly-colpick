@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # (c) Copyright 2024 Mick Amadio <01micko@gmail.com> GPL3
-# requires yad, sed, grep, dc, ppmtoxpm, grim, slurp 
+# requires yad, dc, ppmtoxpm, grim, slurp, expr (coreutils)
 
 # simple hex to decimal conversion
 find_color() {
@@ -17,7 +17,7 @@ yad_error() {
 
 # uses pnmtoxpm to make a 1px xpm image
 get_col() {
-    col=$(pos="$(slurp -b FFFFFF00 -p)";sleep 1; grim -g "$pos" -t ppm - | ppmtoxpm | grep -m1 '" c.*"' | sed -e 's/\" c //' -e 's/\".*$//')
+    col=$(grim -g "$(slurp -p)" -t ppm - | ppmtoxpm | while read -r a b c; do [ "$b" == 'c' ] && echo ${c%\"*}; done)
     echo $col
 }
 
@@ -76,8 +76,8 @@ return_gui() {
     yad --title="Color Picker" --name="select-color" --form \
     --image="$TEMPDIR/col.svg" --text=" Copy and paste color found\n to your application:" \
     --field="Color Hex" "$col_in" \
-    --field="Color rgb" "$ZC" \
-    --field="Color float" "$ZF" \
+    --field="Color RGB" "$ZC" \
+    --field="Color sRGB" "$ZF" \
     --button="Ok!gtk-ok":0
     return 0
 }
